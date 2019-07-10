@@ -59,7 +59,8 @@ export default {
             let bScroll = new BSroll('main',{
                 probeType:2,
                 click:true,
-                pullUpLoad: true
+                pullUpLoad: true,
+                scrollX:true
             })
             this.bs = bScroll
         })

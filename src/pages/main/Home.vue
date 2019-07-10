@@ -76,16 +76,16 @@ export default {
       forYouResult:this.forYouResult,
 
       BS:{
-        
-        }
+
+      }
     }
   },
 
 
 
   async mounted() {
-    this.BS = this.bs
-
+    
+    
     Indicator.open({
       text: '亲，马上来~~~',
       spinnerType: 'triple-bounce'
@@ -124,7 +124,7 @@ export default {
     }); 
     this.goodsActiveResult = goodsActiveResult.data.home
     
-    console.log(this.goodsActiveResult)
+    // console.log(this.goodsActiveResult)
 
 
     //为你推荐模块
@@ -142,6 +142,7 @@ export default {
 
     this.$nextTick(async()=>{
       this.bs.on("pullingUp",async()=>{
+        
         if(page <= 10) {
             Indicator.open()  
             let twoForYouResult = await http.get({
@@ -162,10 +163,12 @@ export default {
         }
         
       })
+      
     })
     
-    
-
+    this.BS = this.bs
+    console.log(this.bs)
+    console.log(this.BS)
 
 
    

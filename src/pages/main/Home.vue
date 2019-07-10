@@ -123,11 +123,8 @@ export default {
       url: "/home/index.html?t=1562052350657&pageNo=3"
     }); 
     this.goodsActiveResult = goodsActiveResult.data.home
-
-
-   
     
-    // console.log(this.goodsActiveResult)
+    console.log(this.goodsActiveResult)
 
 
     //为你推荐模块
@@ -153,7 +150,7 @@ export default {
             this.forYouResult = [...this.forYouResult,...twoForYouResult.data.home[0].globalGoodsItemList]
             page++
             Indicator.close()
-            this.bs.refresh()
+            this.bs.refresh() 
             this.bs.finishPullUp()
         }else{
           this.bs.finishPullUp()

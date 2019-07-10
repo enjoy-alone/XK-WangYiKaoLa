@@ -1,21 +1,17 @@
 <template>
     <div>
+        <img src="https://haitao.nosdn2.127.net/8v8Qd4gikpeGTMgcjingxuan_huodong111T170101801048_960_190.png?imageView&type=webp&thumbnail=960x190&quality=95" width="100%">
         <div class="goods-active"
-            v-for="goods in goodsActiveResult.slice(0,5)"
+            v-for="goods in goodsActiveResult.slice(1,3)"
                 :key="goods.biMark"
         >
-            <div class="bg" v-if="goods.imageUrl">
-                <img :src="goods.imageUrl" width="100%">
-            </div>
-            <div class="swiper-container" id="swiper" v-if="goods.biMark" >   
-                
-                <div class="swiper-wrapper" >
-                    <div 
-                        v-for="item in goods.itemList"
-                        :key="item.biMark"
-                        class="swiper-slide"
-                        id="two"
-                    >
+            <div><img :src="goods.imageUrl" width="100%"></div>
+            <div class="swiper-container" id="swiper" 
+                v-for="item in goods.itemList"
+                :key="item.linkUrl"
+                >   
+                <div class="swiper-wrapper" id="center">
+                    <div class="swiper-slide" id="two" >
                         <a href="#" >
                             <img :src="item.imgUrl">
                         </a>
@@ -24,13 +20,12 @@
                             <p>{{item.description_2}}</p>
                         </h4>
                     </div>
-        
-                    <h5 class="more">
-                        <img src="https://haitao.nos.netease.com/d1e92de4-e260-4f05-a8ab-b9dd30f38073.png" alt="" width="80%">
-                        <p>查看更多</p>
-                    </h5>
                 </div> 
             </div>
+            <h5 class="more">
+                <img src="https://haitao.nos.netease.com/d1e92de4-e260-4f05-a8ab-b9dd30f38073.png" alt="" width="80%">
+                <p>查看更多</p>
+            </h5>
         </div>
 
     </div>
@@ -52,7 +47,7 @@ export default {
         
         this.$nextTick(()=>{
             new Swiper('#swiper',{
-                slidesPerView : 'auto',
+                slidesPerView : 3.5,
                 autoplay:true
             }); 
         })
@@ -81,11 +76,11 @@ export default {
         top -.2rem
         left .15rem
         .swiper-wrapper
-            display flex
             //适应内容最大宽度,
             width: max-content
             padding-right .4rem
             overflow-x scroll 
+
             #two
                 width 1.1rem
                 border 1px solid #ececec
@@ -113,16 +108,16 @@ export default {
                         font-size .11rem
                         padding-top .04rem
                         color #666
-            .more
-                width 1rem
-                border 1px solid #ececec
-                box-shadow 0 0.026667rem 0.08rem 0 #f2f2f2
-                text-align center
-                color #696969
-                font-family normal
-                font-weight normal
-                img 
-                    margin-top .3rem
-                    margin-bottom  .1rem
+    .more
+        width 1rem
+        border 1px solid #ececec
+        box-shadow 0 0.026667rem 0.08rem 0 #f2f2f2
+        text-align center
+        color #696969
+        font-family normal
+        font-weight normal
+        img 
+            margin-top .3rem
+            margin-bottom  .1rem
                 
 </style>

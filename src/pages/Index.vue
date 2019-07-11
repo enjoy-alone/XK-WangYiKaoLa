@@ -1,33 +1,35 @@
 <template>
     <div class="container">
         <header>
-            <Search></Search>
+            <Search :hidden="hidden"></Search>
         </header>
-        <main>
-            <div><Home :bs="bs"></Home></div>
-        </main>
+        
+            <main>
+                <div><router-view :bs="bs"></router-view></div>
+            </main>
+     
         <footer>
             <ul class="btm">
-                <li class="active">
+                <router-link to="/home" tag="li" active-class="active">
                     <i class="yo-ico" >&#xe64f;</i>
                     <b>首页</b>
-                </li>
-                <li>
+                </router-link>
+                <router-link to="/sort"   tag="li" active-class="active">
                     <i class="yo-ico">&#xe602;</i>
                     <b>分类</b>
-                </li>
-                <li>
+                </router-link>
+                <router-link  to="/community"  tag="li" active-class="active">
                     <i class="yo-ico">&#xe505;</i>
                     <b>种草社区</b>
-                </li>
-                <li>
+                </router-link>
+                <router-link  to="/car"  tag="li" active-class="active">
                     <i class="yo-ico">&#xe63f;</i>
                     <b>购物车</b>
-                </li>
-                <li>
+                </router-link>
+                <router-link  to="/myself" tag="li"  active-class="active">
                     <i class="yo-ico">&#xe659;</i>
                     <b>我的考拉</b>
-                </li>
+                </router-link>
             </ul>
         </footer>
     </div>
@@ -35,9 +37,8 @@
 
 <script >
 //项目的主页面，所有的组件入口
-import Home from './main/Home'
-import Search from '../components/Search'
 import Swiper from '../assets/swiper/js/swiper'
+import Search from '../components/Search'
 
 import BSroll from 'better-scroll'
 
@@ -46,24 +47,33 @@ export default {
         return {
             bs:{
 
-            }
+            },
+            hidden:'fail'
        }
     },
-    
     components:{
-        Home,
         Search
     },
+    
     mounted(){
         this.$nextTick(() => {
             let bScroll = new BSroll('main',{
                 probeType:2,
                 click:true,
-                pullUpLoad: true
+                pullUpLoad: true,
+                bounce:false,
+                scrollbar: {
+                            fade: true,
+                            interactive: false // 1.8.0 新增
+                        }
             })
+
             this.bs = bScroll
+            
+            
         })
     }
+    
 
 }
 </script>
@@ -76,7 +86,6 @@ export default {
     display flex
     flex-direction column
     header
-       height .5rem
        background #fff   
     main
         flex 1

@@ -1,34 +1,40 @@
 <template>
-    <div id="search">
-        <div class="sweep">
-            <i class="yo-ico">&#xe649;</i>
-            <b>扫一扫</b>
-        </div>
-        <div class="search">
-            <i class="yo-ico">&#xe602;</i>
-            <span>飞利浦剃须刀</span>
-        </div>
-        <div class="message">
-            <i class="yo-ico">&#xe665;</i>
-            <b>消息</b>
-        </div>
+    <div id="search" :style="`display:${hidden}  `">
+            <div class="sweep">
+                <i class="yo-ico">&#xe649;</i>
+                <b>扫一扫</b>
+            </div>
+            <router-link tag="div" to="/searchdetail" class="search">
+                <i class="yo-ico">&#xe602;</i>
+                <span>&nbsp;猫人内衣</span>
+            </router-link>
+            <div class="message">
+                <i class="yo-ico">&#xe665;</i>
+                <b>消息</b>
+            </div>
     </div>
 </template>
 
-
 <script>
 export default {
-    
+    props:['hidden'],
+    mounted(){
+        // console.log(this.hidden)
+
+    }
+   
 }
 </script>
 
 <style lang="stylus" scoped>
+@import '~@/assets/styles/border.styl'
 #search 
-    height 100%
+    height .45rem
     display flex
     padding 0 .1rem
     line-height 1.1
     align-items center
+    border_1px(0 0 1px 0)
     b
         font-weight normal
     .sweep

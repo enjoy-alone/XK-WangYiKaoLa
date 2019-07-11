@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="goods-active"
-            v-for="goods in goodsActiveResult.slice(0,5)"
+            v-for="goods in goodsActiveResult"
                 :key="goods.biMark"
         >
             <div class="bg" v-if="goods.imageUrl">
@@ -37,25 +37,37 @@
 </template>
 
 <script>
+import Bsroll from 'better-scroll'
 
 export default {
     props:['goodsActiveResult','BS'],
 
     mounted(){
         // console.log(this.BS)
-
-        // this.$nextTick(()=>{
-        //     this.BS('.goodsList',{
-        //         scrollX:true
-        //     })
-        // })
+ 
         
-        this.$nextTick(()=>{
-            new Swiper('#swiper',{
-                slidesPerView : 'auto',
-                autoplay:true
-            }); 
-        })
+            this.$nextTick(()=>{
+                setTimeout(()=>{
+                    let bbs = new Bsroll('#swiper',{
+                        scrollX:true,
+                        scrollY:false,
+                        scrollbar: {
+                            fade: true,
+                            interactive: false // 1.8.0 新增
+                        }
+                    })
+                },5000)
+            })
+        
+        
+        // this.$nextTick(()=>{
+        //     setTimeout(()=>{
+        //         new Swiper('#swiper',{
+        //             slidesPerView : 3.5,
+        //             autoplay:true
+        //         }); 
+        //     },5000)
+        // })
       
 
     }
@@ -68,8 +80,7 @@ export default {
 
 
 <style lang="stylus" scoped>
-@import '../../assets/styles/border.styl'
-@import '../../assets/styles/ellipsis.styl'
+@import '~@/assets/styles/border.styl'
 
 .goods-active
     position relative
@@ -83,9 +94,10 @@ export default {
         .swiper-wrapper
             display flex
             //适应内容最大宽度,
-            width: max-content
+            width  max-content
             padding-right .4rem
             overflow-x scroll 
+
             #two
                 width 1.1rem
                 border 1px solid #ececec
@@ -113,6 +125,8 @@ export default {
                         font-size .11rem
                         padding-top .04rem
                         color #666
+                        overflow hidden
+                        text-overflow ellipsis
             .more
                 width 1rem
                 border 1px solid #ececec

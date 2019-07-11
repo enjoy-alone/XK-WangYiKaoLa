@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-
+import router from './router/'
 
 
 //引入css基础设置，yo文件
@@ -19,6 +19,7 @@ Vue.config.productionTip = false
 
 //路由模板入口
 new Vue({
+  router,
   render: h => h(App)
 }).$mount('#app')
 

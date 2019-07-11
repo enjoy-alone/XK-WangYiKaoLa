@@ -27,7 +27,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../../assets/styles/ellipsis.styl'
 .goods-list
     background #f2f2f2
     display flex

@@ -17,11 +17,11 @@
                         id="two"
                     >
                         <a href="#" >
-                            <img :src="item.imgUrl">
+                            <img :src="item.imgUrl || item.logoUrl">
                         </a>
                         <h4>
-                            <p>{{item.description_1}}</p>
-                            <p>{{item.description_2}}</p>
+                            <p>{{item.description_1 || item.name}}</p>
+                            <p>{{item.description_2 || item.introduce}}</p>
                         </h4>
                     </div>
         
@@ -119,14 +119,18 @@ export default {
                     font-family normal
                     font-weight normal
                     p:nth-child(1)
-                        font-size .15rem
+                        font-size .14rem
                         color #333
+                        overflow hidden
+                        text-overflow ellipsis 
+                        white-space nowrap
                     p:nth-child(2)
                         font-size .11rem
                         padding-top .04rem
                         color #666
                         overflow hidden
                         text-overflow ellipsis
+                        white-space nowrap
             .more
                 width 1rem
                 border 1px solid #ececec

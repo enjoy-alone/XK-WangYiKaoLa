@@ -9,8 +9,8 @@
                 &nbsp;
                 <!-- <span>&nbsp;猫人内衣</span> -->
                 <input type="search" 
-                     v-model='msg'
-                     @input="msgClick()" 
+                     id="ins"
+                     @input="msgClick($event)" 
                      required="required" 
                      :placeholder=searchResult.keyInBox 
                      autocomplete="off" 
@@ -32,14 +32,16 @@
             </ul>
         </div>
 
-        <div class="list">
+        <div class="list" :style="{'display': isShow }" >
             <p
                 v-for="list in resultRT"
                 :key="list.index"
                 >
             {{list.levelOneKeyWords}}
             </p>
-            <b>关闭</b>
+            <b @click="handleClick()">
+                <img width="80%" src="https://jp.juancdn.com/jpwebapp_v1/images_v1/icon/del.png?69cb737e-1&sv=449ce9ee" alt="">
+            </b>
         </div>
 
     </div>
@@ -48,15 +50,15 @@
 <script>
 import http from "../../utils/http"
 
-import { debounce } from '../../utils/debounce'
+import { _debounce } from '../../utils/optimize'
 
 export default {
-
+    
     data(){
         return {
             searchResult:{},
-            msg:'',
-            resultRT:{}
+            resultRT:{},
+            isShow:'none'
 
         }
     },
@@ -71,27 +73,34 @@ export default {
         this.searchResult = searchResult.body.result
         // console.log(this.searchResult)
 
-
-        //实时搜索数据
-       
-
-        this.$watch('msg', debounce((a) => {
-            this.$emit('msg', a)
-        }, 2000))
+        
 
     },
 
     methods:{
-        async msgClick(){
-            if(this.msg !== ''){
+        //实时搜索数据
+        async msgClick(event){
+            if(document.getElementById("ins").value){
                 let resultRT = await http.get({
-                   url:'/v250/suggest.html?t=1562854151273&key='+this.msg
-               })
-               console.log(resultRT.body.keywords)
-               this.resultRT = resultRT.body.keywords
-            }
+                    url:'/v250/suggest.html?t=1562854151273&key='+document.getElementById("ins").value
+                })
+                console.log(resultRT.body.keywords)
+                this.resultRT = resultRT.body.keywords
+                this.isShow = "block"
+            } else{
+                this.isShow = "none"
+            }  
+        },
+
+        handleClick(){
+            this.isShow = "none"
+            document.getElementById("ins").value = ''
         }
-    }
+
+    },
+
+  
+
 }
 </script>
 
@@ -173,6 +182,14 @@ export default {
         padding-left .1rem
         font-size .14rem 
         border-bottom 1px solid #ccc
+    b
+        font-weight normal
+        position absolute
+        right .6rem
+        top -.38rem
+        color #fff
+        width .16rem
+        height .16rem
 
 </style>
 

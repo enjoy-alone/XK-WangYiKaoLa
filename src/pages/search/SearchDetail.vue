@@ -67,7 +67,7 @@ export default {
         
         //搜索列表数据
         let searchResult = await http.get({
-            url: "/h5/hotKey.html?t=1562850466985"
+            url: "/h5/hotKey.html?t=1562979743912"
         }); 
         
         this.searchResult = searchResult.body.result

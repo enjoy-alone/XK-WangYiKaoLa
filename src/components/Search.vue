@@ -6,7 +6,7 @@
             </div>
             <router-link tag="div" to="/searchdetail" class="search">
                 <i class="yo-ico">&#xe602;</i>
-                <span>&nbsp;猫人内衣</span>
+                <span>纳爱斯</span>
             </router-link>
             <div class="message">
                 <i class="yo-ico">&#xe665;</i>
@@ -60,9 +60,11 @@ export default {
             font-weight 900
             margin-left .1rem
             color red
-        b
-            font-size .08rem
-            color #727273 
+        span
+            font-size .12rem
+            color #676767
+            padding-top .02rem
+            padding-left .08rem
     .message
         display flex
         align-items center

@@ -6,11 +6,11 @@
         <!-- 菜单板块 -->
         <ul class="m-slide">
             <li
-                v-for="(index,item) in resultHome[2].itemList"
+                v-for="item in resultHome[2].itemList"
                 :key="item.index"
             >
             
-            <img :src="index.imgUrl" alt="">
+            <img :src="item.imgUrl" alt="">
             </li>
         </ul>
 
@@ -40,9 +40,6 @@
 <script>
 export default {
     props:['resultHome'],
-    mounted(){
-        
-    }
 
 }
 </script>

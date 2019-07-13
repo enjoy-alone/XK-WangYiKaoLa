@@ -4,8 +4,8 @@
         <div class="goods-list"
             >
             <ul>
-                <li v-for="goods in forYouResult"
-                :key="goods.goodsId">
+                <router-link tag="li" to="/goodsdetail/id" v-for="goods in forYouResult"
+                :key="goods.goodsId" >
                     <a href="javascript:;">
                         <img :src="goods.imageUrl" width="100%">
                     </a>
@@ -13,7 +13,7 @@
                         <p>{{goods.title}}</p>
                         <p><span>￥</span><span>{{goods.currentPrice}}</span></p>
                     </div>
-                </li>
+                </router-link>
             </ul>
             
         </div>

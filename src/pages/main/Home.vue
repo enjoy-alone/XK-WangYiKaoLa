@@ -1,7 +1,6 @@
 <template>
 
   <div class="banner">
-    <!-- <Search :hidden="hidden"></Search> -->
 
     <!-- 轮播图 -->
     <div class="swiper-container  swiper-no-swiping">

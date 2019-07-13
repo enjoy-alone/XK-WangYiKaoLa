@@ -10,6 +10,8 @@ import Car from '../pages/car/Car'
 import MySelf from '../pages/mySelf/MySelf'
 
 import SearchDetail from '../pages/search/SearchDetail'
+import GoodsDetail from '../pages/goodsDetail/GoodsDetail'
+
 
 Vue.use(VueRouter)
 
@@ -53,6 +55,12 @@ let routes= [
         path:'/searchdetail',
         name:'searchdetail',
         component:SearchDetail
+    },
+    {
+        path: '/goodsdetail/:id',
+        name: 'goodsdetail',
+        component: GoodsDetail
+        
     }
     
 

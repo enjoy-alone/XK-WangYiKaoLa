@@ -58,7 +58,7 @@ export default {
     mounted(){
         this.$nextTick(() => {
             let bScroll = new BSroll('main',{
-                probeType:2,
+                probeType:1,
                 click:true,
                 pullUpLoad: true,
                 bounce:false,

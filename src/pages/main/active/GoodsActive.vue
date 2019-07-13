@@ -2,7 +2,7 @@
     <div>
         <div class="goods-active"
             v-for="goods in goodsActiveResult"
-                :key="goods.biMark"
+                :key="goods.index"
         >
             <div class="bg" v-if="goods.imageUrl">
                 <img :src="goods.imageUrl" width="100%">
@@ -72,8 +72,6 @@ export default {
 
     }
     
-   
-    
 
 }
 </script>
@@ -97,7 +95,6 @@ export default {
             width  max-content
             padding-right .4rem
             overflow-x scroll 
-
             #two
                 width 1.1rem
                 border 1px solid #ececec

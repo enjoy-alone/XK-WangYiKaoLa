@@ -6,11 +6,11 @@
         <!-- 菜单板块 -->
         <ul class="m-slide">
             <li
-                v-for="item in resultHome[2].itemList"
+                v-for="(index,item) in resultHome[2].itemList"
                 :key="item.index"
             >
             
-            <img :src="item.imgUrl" alt="">
+            <img :src="index.imgUrl" alt="">
             </li>
         </ul>
 
@@ -19,13 +19,13 @@
             <img :src="resultHome[3].imageUrl" alt="" width="100%" height="100%">
         </div>
 
-        <div class="new-active">
-            <span><img :src="resultHome[4].itemList[0].imageUrl" alt="" width="100%" height="100%"></span>
-            <span>
+        <!-- <div class="new-active">
+            <span class="one"><img :src="resultHome[4].itemList[0].imageUrl" alt="" width="100%" height="100%"></span>
+            <span class="two">
                 <img :src="resultHome[4].itemList[1].imageUrl" alt="" width="100%" height="50%">
                 <img :src="resultHome[4].itemList[2].imageUrl" alt="" width="100%" height="50%">
             </span>
-        </div>
+        </div> -->
 
         <!-- 商品大logo -->
         <div   width="100%">
@@ -40,7 +40,9 @@
 <script>
 export default {
     props:['resultHome'],
-
+    mounted(){
+        
+    }
 }
 </script>
 
@@ -64,20 +66,15 @@ export default {
         img 
             width 100%
             height 100%
-
 .new-active
     width 100%
     display flex
-    span:nth-of-type(1)
+    .one
         display inline-block
         height 100%
         width 50%
-    span:nth-of-type(2)
+    .two
         display inline-block
         height 100%
         width 50%
-
-
 </style>
-
-

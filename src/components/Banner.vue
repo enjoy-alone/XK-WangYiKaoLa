@@ -8,6 +8,7 @@
 
 
 <script>
+
 export default {
 
     props:['bannerlist'],
@@ -16,8 +17,10 @@ export default {
 
         //swiper轮播图
         new Swiper ('.swiper-container', {
-        autoplay:true,
-        delay: 3000,
+        autoplay: {
+            disableOnInteraction: false,
+            delay:3000
+        },//可选选项，自动滑动
         loop: true, // 循环模式选项
         pagination: {
             el: ".swiper-pagination",

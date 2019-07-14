@@ -84,7 +84,7 @@ export default {
                 let resultRT = await http.get({
                     url:'/v250/suggest.html?t=1562854151273&key='+document.getElementById("ins").value
                 })
-                console.log(resultRT.body.keywords)
+                // console.log(resultRT.body.keywords)
                 this.resultRT = resultRT.body.keywords
                 this.isShow = "block"
             } else{
